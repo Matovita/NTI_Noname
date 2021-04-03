@@ -1,0 +1,28 @@
+{
+  "name": "NTI_Noname",
+  "version": "1.0.0",
+  "description": "https://code.visualstudio.com/",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matovita/NTI_Noname.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Matovita/NTI_Noname/issues"
+  },
+  "homepage": "https://github.com/Matovita/NTI_Noname#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
