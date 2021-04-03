@@ -11,7 +11,7 @@ Rozszerzenia do pobrania:
 - Auto Rename Tag
 
 
-
+https://youtu.be/1NrHkjlWVhM
 https://nodejs.org/en/download/
 
 npm init -y
