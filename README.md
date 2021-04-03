@@ -13,6 +13,7 @@ Rozszerzenia do pobrania:
 
 https://youtu.be/1NrHkjlWVhM
 https://nodejs.org/en/download/
+http://localhost:5000/
 
 npm init -y
 
