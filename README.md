@@ -15,6 +15,9 @@ Rozszerzenia do pobrania:
 https://nodejs.org/en/download/
 
 npm init -y
+
 npm i express mongoose ejs
+
 npm i --save-dev nodemon
+
 npm install bootstrap@next
