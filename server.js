@@ -1,10 +1,13 @@
 const express = require('express')
+const mongoose = require('mongoose')
 const postRouter = require('./routes/posts')
 const app = express()
 
+mongoose.connect('mongodb://localhost/db', {useNewUrlParser: true, useUnifiedTopology: true})
+
 app.set('view engine', 'ejs')
 
-app.use('/posts', postRouter)
+app.use(express.urlencoded({extended: false}))
 
 app.get('/', (req, res) =>{
     const posts = [{
@@ -17,7 +20,9 @@ app.get('/', (req, res) =>{
         createdAt: new Date(),
         description: 'Test description2'
     }]
-    res.render('index', {posts: posts})
+    res.render('posts/index', {posts: posts})
 })
+
+app.use('/posts', postRouter)
 
 app.listen(5000)
