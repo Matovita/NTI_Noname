@@ -6,10 +6,10 @@ router.get('/new', (req, res)=>{
     res.render('posts/new', {post: new Post() })
 })
 
-router.get('/:id', async (req, res)=>{
-    const post = await Post.findById(req.params.id)
+router.get('/:slug', async (req, res)=>{
+    const post = await Post.findOne({ slug: req.params.slug })
     if(post == null) res.redirect('/')
-    res.render('articles.show', {post: post})
+    res.render('posts/show', {post: post})
 })
 
 router.post('/', async (req, res)=>{
@@ -20,11 +20,18 @@ router.post('/', async (req, res)=>{
     })
     try{
         post = await post.save()
-        res.redirect('/posts/${post.id}')
+        let str = '/posts/'
+        str += post.slug
+        res.redirect(str)
     }catch(e){
         res.render('posts/new', {post: post})
     }
-    
+})
+
+method="DELETE"
+router.delete('/:id', async (req,res) => {
+    await Post.findByIdAndDelete(req.params.id)
+    res.redirect('/')
 })
 
 module.exports = router
