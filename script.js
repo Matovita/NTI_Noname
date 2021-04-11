@@ -51,28 +51,34 @@ btnForum.addEventListener(`click`, function () {
   console.log(`Siema, forum odpalone.`);
 });
 
-const registrationEmail = document.getElementById("emailRegister");
-const registrationPassword = document.getElementById("passwordRegister");
-const registrationConfirmPassword = document.getElementById("confirmpasswordRegister");
+const registrationEmail = document.getElementById('emailRegister');
+const registrationPassword = document.getElementById('passwordRegister');
+const registrationConfirmPassword = document.getElementById(
+  'confirmpasswordRegister'
+);
 const registrationText = document.querySelector('.registerText');
 
-const loginEmail = document.getElementById("emailLog");
-const loginPassword = document.getElementById("passwordLog");
+const loginEmail = document.getElementById('emailLog');
+const loginPassword = document.getElementById('passwordLog');
 const loginText = document.querySelector('.loginText');
 
-const btnLoginAccept = document.getElementById("login-accept");
-const btnRegisterAccount = document.getElementById("register-accept");
+const btnLoginAccept = document.getElementById('login-accept');
+const btnRegisterAccount = document.getElementById('register-accept');
 
 function passwordConfirmation() {
-  if(registrationPassword.value === registrationConfirmPassword.value && registrationPassword.value !== "" && registrationConfirmPassword.value !== "") {
+  if (
+    registrationPassword.value === registrationConfirmPassword.value &&
+    registrationPassword.value !== '' &&
+    registrationConfirmPassword.value !== ''
+  ) {
     return true;
   }
   return false;
 }
 
 function emailConfirmation() {
-  for(let i = 0; i < mails.length; i++) {
-    if(registrationEmail.value === mails[i]) {
+  for (let i = 0; i < mails.length; i++) {
+    if (registrationEmail.value === mails[i]) {
       return false;
     }
   }
@@ -80,16 +86,14 @@ function emailConfirmation() {
 }
 
 function confirmRegister() {
-  if(!passwordConfirmation()) {
-    registrationText.innerHTML = "Wrong passwords";
+  if (!passwordConfirmation()) {
+    registrationText.innerHTML = 'Wrong passwords';
     registrationText.classList.remove(`hidden`);
-  }
-  else if(!emailConfirmation()) {
-    registrationText.innerHTML = "Email already in use";
+  } else if (!emailConfirmation()) {
+    registrationText.innerHTML = 'Email already in use';
     registrationText.classList.remove(`hidden`);
-  }
-  else if(passwordConfirmation() && emailConfirmation()){
-    registrationText.innerHTML = "Account succesfully registered";
+  } else if (passwordConfirmation() && emailConfirmation()) {
+    registrationText.innerHTML = 'Account succesfully registered';
     registrationText.classList.remove(`hidden`);
     mails.push(registrationEmail.value);
     pass.push(registrationPassword.value);
@@ -98,9 +102,9 @@ function confirmRegister() {
 }
 
 function CheckLogData() {
-  for(let i = 0; i < mails.length; i++) {
-    if(mails[i] === loginEmail.value && pass[i] === loginPassword.value) {
-      mailDisplay.innerHTML = mails[i];
+  for (let i = 0; i < mails.length; i++) {
+    if (mails[i] === loginEmail.value && pass[i] === loginPassword.value) {
+      mailDisplay.innerHTML = `Welcome, ${mails[i]}`;
       return true;
     }
   }
@@ -108,16 +112,15 @@ function CheckLogData() {
 }
 
 function LogIn() {
-  if(CheckLogData()) {
+  if (CheckLogData()) {
     btnRegister.classList.add('hidden');
     btnLogin.classList.add('hidden');
     btnLogout.classList.remove('hidden');
     mailDisplay.classList.remove('hidden');
-    loginText.innerHTML = "Logged in";
+    loginText.innerHTML = 'Logged in';
     loginText.classList.remove('hidden');
-  } 
-  else {
-    loginText.innerHTML = "Wrong email or password";
+  } else {
+    loginText.innerHTML = 'Wrong email or password';
     loginText.classList.remove('hidden');
   }
 }
