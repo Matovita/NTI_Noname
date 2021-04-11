@@ -11,7 +11,10 @@
     <div class="header">
       <button class="forum-btn">Forum</button>
       <img class="g-logo" src="gothicLogo.png">
-      <button class="login-btn">Logowanie</button>
+      <button class="login-btn">Log in</button>
+      <button class="register-btn">Sing up</button>
+      <button class="logout-btn hidden">Log out</button>
+      <label class="mail-display hidden">123@123.com</label>
     </div>
     <div class="content">
       <div class="content-photos">
@@ -29,21 +32,43 @@
       </div>
     </div>
 
+    <form class="register-form hidden">
+      <h3>Zarejestruj się</h3>
+      <p>
+        <label>
+          E-mail:
+          <input type="text" placeholder="email" name="e-mail" id="emailRegister"/>
+        </label>
+        <br/>
+        <label>
+          Hasło:
+          <input type="password" placeholder="hasło" name="password" id="passwordRegister"/>
+        </label>
+        <br/>
+        <label>
+          Potwierdź hasło:
+          <input type="password" placeholder="potwierdź hasło" name="confirm-password" id="confirmpasswordRegister"/>
+        </label>
+        <br/>
+        <label class="registerText hidden">Account succesfully registered</label>
+        <button class="btn" id="register-accept">Zarejestruj</button>
+      </p>
+    </form>
+
     <form class="login-form hidden">
       <h3>Zaloguj się</h3>
       <p>
         <label>
           E-mail:
-          <input type="text" placeholder="email" name="e-mail" />
+          <input type="text" placeholder="email" name="e-mail" id="emailLog"/>
         </label>
         <label>
           Hasło:
-          <input type="text" placeholder="hasło" name="password" />
+          <input type="password" placeholder="hasło" name="password" id="passwordLog"/>
         </label>
-        <button class="btn" id="login-accept">zaloguj</button>
-        <a id="register" href="https://www.youtube.com/watch?v=vvwwMG2tfx4"
-          >Rejestracja</a
-        >
+        <br/>
+        <label class="loginText hidden">Logged in</label>
+        <button class="btn" id="login-accept">Zaloguj</button>
       </p>
     </form>
     <div class="overlay hidden"></div>
