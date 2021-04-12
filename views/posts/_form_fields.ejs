@@ -1,15 +1,15 @@
 <div class="form-group">
-    <label for="title">Title</label>
+    <label for="title">Tutuł</label>
     <input required value="<%= post.title %>" type="text" name="title" id="title" class="form-control">
 </div>
 <div class="form-group">
-    <label for="description">Description</label>
+    <label for="description">Opis</label>
     <textarea name="description" id="description" class="form-control"><%= post.description %></textarea>
 </div>
 <div class="form-group">
-    <label for="markdown">Markdown</label>
+    <label for="markdown">Tekst formatowany</label>
     <textarea required name="markdown" id="markdown" class="form-control"><%= post.markdown %></textarea>
 </div>
 
-<a href="/" class="btn btn-secondary">Cancel</a>
-<button type="submit" class="btn btn-primary">Save</button>
+<a href="/" class="btn btn-secondary">Anuluj</a>
+<button type="submit" class="btn btn-primary">Zapisz</button>
