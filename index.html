@@ -8,24 +8,109 @@
     <title>Great adventure of Noname</title>
   </head>
   <body>
-    <button class="forum-btn">Forum</button>
-    <button class="login-btn">Logowanie</button>
+    <div class="header">
+      <a href = "http://localhost:5000/"><button class="forum-btn">Forum</button></a>
+      <img class="g-logo" src="gothicLogo.png" />
+      <button class="login-btn">Log In</button>
+      <button class="register-btn">Sing Up</button>
+      <button class="logout-btn hidden">Log Out</button>
+      <p class="mail-display hidden">Welcome, 123@123.com</p>
+    </div>
+    <div class="content">
+      <div class="content-photos">
+        <img class="g-ss-1" src="gothicSS.png" />
+        <img class="g-ss-2" src="gothicSS2.png" />
+      </div>
+      <div class="noneDiv"></div>
+      <div class="content-text">
+        <p>
+          In dico novum quaeque eam, legendos electram te usu. Nonumes
+          intellegam te vix, mel posse nostrum scaevola ea. Ei discere habemus
+          noluisse ius, te mel meis partem inermis, mei in delectus sententiae.
+          Liber explicari te duo, id liber urbanitas nec. In his munere
+          vituperatoribus, id wisi euripidis vel. Mundi pertinax cu pri, pro et
+          cetero delectus adipiscing. Pro erant delectus no. Usu ex malis
+          discere pericula, novum primis placerat sed ut. Aliquam meliore
+          efficiendi est te, per omnis probatus cu, mel ei quod facilisi
+          torquatos. Usu legere offendit ei, te his noster vidisse conceptam.
+          Vix eu libris corrumpit dignissim, usu partiendo similique sadipscing
+          no.
+        </p>
+        <p>
+          Placerat incorrupte vel cu, ius brute verterem democritum ne. At pri
+          ornatus quaerendum, sed ex altera causae veritus. Pri eu omnes
+          invidunt adipiscing, sit ei vivendo splendide. Usu wisi tincidunt ut.
+          Pro an summo mnesarchum, et nonumes prodesset mea. Partem civibus
+          interpretaris cu duo, ei sit delenit placerat, veri nemore feugait nec
+          et. An mea modo tincidunt, nec legimus consequat omittantur te. Nec eu
+          modus nulla dignissim, quo dolore vivendo copiosae an, prompta
+          erroribus euripidis nam ei. Malis timeam usu ex. Mei et quaestio
+          corrumpit. Usu legere offendit ei, te his noster vidisse conceptam.
+          Vix eu libris corrumpit dignissim, usu partiendo similique sadipscing
+          no.
+        </p>
+      </div>
+    </div>
 
-    <form class="login-form hidden">
-      <h3>Zaloguj się</h3>
+    <form class="register-form hidden">
+      <h3>Register</h3>
       <p>
         <label>
           E-mail:
-          <input type="text" placeholder="email" name="e-mail" />
+          <input
+            type="text"
+            placeholder="email"
+            name="e-mail"
+            id="emailRegister"
+          />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input
+            type="password"
+            placeholder="password"
+            name="password"
+            id="passwordRegister"
+          />
+        </label>
+        <br />
+        <label>
+          Confirm password:
+          <input
+            type="password"
+            placeholder="password"
+            name="confirm-password"
+            id="confirmpasswordRegister"
+          />
+        </label>
+        <br />
+        <label class="registerText hidden"
+          >Account succesfully registered</label
+        >
+        <button class="btn" id="register-accept">Register</button>
+      </p>
+    </form>
+
+    <form class="login-form hidden">
+      <h3>Log In</h3>
+      <p>
+        <label>
+          E-mail:
+          <input type="text" placeholder="email" name="e-mail" id="emailLog" />
         </label>
         <label>
-          Hasło:
-          <input type="text" placeholder="hasło" name="password" />
+          Password:
+          <input
+            type="password"
+            placeholder="password"
+            name="password"
+            id="passwordLog"
+          />
         </label>
-        <button class="btn" id="login-accept">zaloguj</button>
-        <a id="register" href="https://www.youtube.com/watch?v=vvwwMG2tfx4"
-          >Rejestracja</a
-        >
+        <br />
+        <label class="loginText hidden">Logged in</label>
+        <button class="btn" id="login-accept">Log In</button>
       </p>
     </form>
     <div class="overlay hidden"></div>

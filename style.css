@@ -14,6 +14,9 @@ body {
   color: #333;
   line-height: 1.5;
   height: 100vh;
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   display: flex;
   align-items: flex-start;
@@ -21,8 +24,30 @@ body {
   background: linear-gradient(to top left, #333 40%, #b22222 100%);
 }
 
-#register {
-  color: peru;
+p {
+  margin-bottom: 20px;
+}
+
+img {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.content {
+  color: aliceblue;
+  margin-top: 200px;
+  font-size: 20px;
+}
+
+.content-text {
+  padding-left: 20px;
+  width: 50%;
+  float: left;
+}
+
+.content-photos {
+  width: 50%;
+  float: left;
 }
 
 .login-form {
@@ -30,13 +55,76 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 70%;
+  width: 35%;
 
   background-color: white;
-  padding: 6rem;
+  padding: 1rem 4rem 4rem 4rem;
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
+}
+
+.register-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+
+  background-color: white;
+  padding: 1rem 4rem 4rem 4rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+#register-accept {
+  left: 200px;
+  top: 150px;
+}
+
+#login-accept {
+  left: 175px;
+  top: 120px;
+}
+
+button {
+  position: absolute;
+  background-color: #888;
+  font-size: 15px;
+  padding: 10px;
+  top: 10px;
+}
+
+.mail-display {
+  position: absolute;
+  color: aliceblue;
+  top: 20px;
+  right: 120px;
+  font-size: 15px;
+}
+
+.forum-btn {
+  left: 30px;
+}
+
+.login-btn {
+  right: 30px;
+}
+
+.register-btn {
+  right: 140px;
+}
+
+.logout-btn {
+  right: 30px;
+}
+
+.g-logo {
+  position: absolute;
+  width: 20%;
+  right: 480px;
+  top: 50px;
 }
 
 .overlay {
@@ -52,12 +140,4 @@ body {
 
 .hidden {
   display: none;
-}
-.button-color-aqua
-{
-  background-color: aqua;
-}
-.button-color-aqua2
-{
-  background-color: aquamarine;
 }
