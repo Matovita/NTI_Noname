@@ -7,12 +7,31 @@
     <link href="style.css" rel="stylesheet" />
     <title>Great adventure of Noname</title>
   </head>
+  <script type="text/javascript">
+    function changemysize(myvalue) {
+      var div = document.getElementById('do-zmiany1');
+      div.style.fontSize = myvalue + 'px';
+      var div = document.getElementById('do-zmiany2');
+      div.style.fontSize = myvalue + 'px';
+    }
+  </script>
   <body>
     <div class="header">
-      <a href = "http://localhost:5000/"><button class="forum-btn">Forum</button></a>
+      <a href="http://localhost:5000/"
+        ><button class="forum-btn">Forum</button></a
+      >
       <img class="g-logo" src="gothicLogo.png" />
       <button class="login-btn">Log In</button>
       <button class="register-btn">Sing Up</button>
+      <font size="2"
+        ><a href="javascript:void(0);" onclick="changemysize(16);">A</a></font
+      >
+      <font size="4"
+        ><a href="javascript:void(0);" onclick="changemysize(20);">A</a></font
+      >
+      <font size="5"
+        ><a href="javascript:void(0);" onclick="changemysize(25);">A</a></font
+      >
       <button class="logout-btn hidden">Log Out</button>
       <p class="mail-display hidden">Welcome, 123@123.com</p>
     </div>
@@ -23,7 +42,7 @@
       </div>
       <div class="noneDiv"></div>
       <div class="content-text">
-        <p>
+        <p id="do-zmiany1">
           In dico novum quaeque eam, legendos electram te usu. Nonumes
           intellegam te vix, mel posse nostrum scaevola ea. Ei discere habemus
           noluisse ius, te mel meis partem inermis, mei in delectus sententiae.
@@ -36,7 +55,7 @@
           Vix eu libris corrumpit dignissim, usu partiendo similique sadipscing
           no.
         </p>
-        <p>
+        <p id="do-zmiany2">
           Placerat incorrupte vel cu, ius brute verterem democritum ne. At pri
           ornatus quaerendum, sed ex altera causae veritus. Pri eu omnes
           invidunt adipiscing, sit ei vivendo splendide. Usu wisi tincidunt ut.
