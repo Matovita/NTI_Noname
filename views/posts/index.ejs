@@ -10,14 +10,14 @@
 <body>
     <div class="container">
         <h1 class="mb-4" style="text-align: center;font-weight: bold;">Forum</h1>
-        <a href="../" class="btn btn-success mb-4">Najnowsze</a>
-        <a href="/posts/Aktualności" class="btn btn-success mb-4">Aktualności</a>
-        <a href="/posts/Dział ogólny" class="btn btn-success mb-4">Dział ogólny</a>
-        <a href="/posts/Fabuła" class="btn btn-success mb-4">Fabuła</a>
-        <a href="/posts/Rozrywka" class="btn btn-success mb-4">Rozrywka</a>
-        <a href="/posts/Dział techniczny" class="btn btn-success mb-4">Dział techniczny</a>
-        <a href="/posts/Społeczność" class="btn btn-success mb-4">Społeczność</a>
-        <a href="/posts/new" class="btn btn-success mb-4">Dodaj nowy post</a>
+        <a href="/posts/new" class="btn btn-success mb-4">Kategoria1</a>
+        <a href="/posts/new" class="btn btn-success mb-4">Kategoria2</a>
+        <a href="/posts/new" class="btn btn-success mb-4">Kategoria3</a>
+        <a href="/posts/new" class="btn btn-success mb-4">Kategoria4</a>
+        <a href="/posts/new" class="btn btn-success mb-4">Kategoria5</a>
+        <a href="/posts/new" class="btn btn-success mb-4">Kategoria6</a>
+        <a href="/posts/new" class="btn btn-success mb-4">Kategoria7</a>
+        <a href="/posts/new" class="btn btn-success mb-4">Kategoria8</a>
 
         <% posts.forEach(post => { %>
             <div class="card mt-4">
@@ -27,7 +27,6 @@
                         napisany dnia:
                         <%= post.createdAt.toLocaleDateString() %>
                     </div>
-                    <div class="card-text mb-2"><%= post.category %></div>
                     <div class="card-text mb-2"><%= post.description %></div>
                     <a href="posts/<%= post.slug %>" class="btn btn-primary">Czytaj</a>
                     <a href="posts/edit/<%= post.id %>" class="btn btn-info">Edytuj</a>

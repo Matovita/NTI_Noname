@@ -22,7 +22,6 @@ app.get('/', async (req, res) =>{
     res.render('posts/index', {posts: posts})
 })
 
-
 // app.post('/', async (req, res) => {
 // 	const { username, password } = req.body
 // 	const user = await User.findOne({ username }).lean()
