@@ -29,7 +29,11 @@ const postSchema = new mongoose.Schema({
     sanitizedHtml: {
         type: String,
         required: true
-      }
+      },
+      category: {
+        type: String,
+        required: true
+    }
 })
 
 postSchema.pre('validate', function(next){

@@ -10,6 +10,19 @@
     <label for="markdown">Tekst formatowany</label>
     <textarea required name="markdown" id="markdown" class="form-control"><%= post.markdown %></textarea>
 </div>
+<div class="form-group">
+    <label for="category">Kategoria</label>
+    <textarea name="category" id="category" class="form-control"><%= post.category %></textarea>
+</div>
+<!--<select class="form-select" aria-label="Default select example">
+    <option selected><%= post.category %></option>
+    <option value="1">Aktualności</option>
+    <option value="2">Dział ogólny</option>
+    <option value="3">Fabuła</option>
+    <option value="4">Rozrywka</option>
+    <option value="5">Dział techniczny</option>
+    <option value="6">Społeczność</option>
+  </select>-->
 
 <a href="/" class="btn btn-secondary">Anuluj</a>
 <button type="submit" class="btn btn-primary">Zapisz</button>
