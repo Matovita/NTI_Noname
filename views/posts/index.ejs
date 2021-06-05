@@ -10,15 +10,19 @@
 <body>
     <div class="container">
         <h1 class="mb-4" style="text-align: center;font-weight: bold;">Forum</h1>
-        <a href="/posts/new" class="btn btn-success mb-4">Kategoria1</a>
-        <a href="/posts/new" class="btn btn-success mb-4">Kategoria2</a>
-        <a href="/posts/new" class="btn btn-success mb-4">Kategoria3</a>
-        <a href="/posts/new" class="btn btn-success mb-4">Kategoria4</a>
-        <a href="/posts/new" class="btn btn-success mb-4">Kategoria5</a>
-        <a href="/posts/new" class="btn btn-success mb-4">Kategoria6</a>
-        <a href="/posts/new" class="btn btn-success mb-4">Kategoria7</a>
-        <a href="/posts/new" class="btn btn-success mb-4">Kategoria8</a>
+        <a href="/categories/" class="btn btn-success mb-4">Pomoc Techniczna</a>
+        <a href="/posts/talk" class="btn btn-success mb-4">Pogadanki</a>
+        <a href="/posts/new" class="btn btn-success mb-4">Nowa kategoria</a>
 
+        <nav aria-label="pages">
+            <ul class = "pagination">
+                <li class ="page-item"><a class = "page-link" href = "#">Poprzedni</a></li>
+                <li class ="page-item active"><a class = "page-link" href = "#">1</a></li>
+                <li class ="page-item"><a class = "page-link" href = "#">2</a></li>
+                <li class ="page-item"><a class = "page-link" href = "#">3</a></li>
+                <li class ="page-item"><a class = "page-link" href = "#">Nastepny</a></li>
+            </ul>
+        </nav>
         <% posts.forEach(post => { %>
             <div class="card mt-4">
                 <div class="card-body">
@@ -36,6 +40,15 @@
                 </div>
             </div>
         <% }) %>
+        <nav aria-label="pages">
+            <ul class = "pagination">
+                <li class ="page-item"><a class = "page-link" href = "#">Poprzedni</a></li>
+                <li class ="page-item active"><a class = "page-link" href = "#">1</a></li>
+                <li class ="page-item"><a class = "page-link" href = "#">2</a></li>
+                <li class ="page-item"><a class = "page-link" href = "#">3</a></li>
+                <li class ="page-item"><a class = "page-link" href = "#">Nastepny</a></li>
+            </ul>
+        </nav>
     </div>
 </body>
 </html>

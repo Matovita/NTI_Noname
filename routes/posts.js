@@ -2,6 +2,10 @@ const express = require('express')
 const Post = require("./../models/post")
 const router = express.Router()
 
+router.get('/technical', (req, res)=>{
+    res.render('categories/technical')
+})
+
 router.get('/new', (req, res)=>{
     res.render('posts/new', {post: new Post() })
 })
@@ -26,6 +30,8 @@ router.put('/:id', async (req, res, next)=>{
     req.post = await Post.findById(req.params.id)
     next()
 }, savePostAndRedirect('edit'))
+
+
 
 function savePostAndRedirect(path){
     return async (req, res) =>{

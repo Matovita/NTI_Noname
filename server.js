@@ -2,6 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const Post = require('./models/post')
 const postRouter = require('./routes/posts')
+//const Category = require('./models/category')
+const categoriesRouter = require('./routes/categories')
 // const User = require('./models/user')
 // const bcrypt = require('bcryptjs')
 // const jwt = require('jsonwebtoken')
@@ -11,7 +13,9 @@ const app = express()
 
 //const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
 
-mongoose.connect('mongodb://localhost/db', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
+var url = "mongodb://localhost/db"
+mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
+const connection = mongoose.connection;
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended: false}))
@@ -86,5 +90,6 @@ app.get('/', async (req, res) =>{
 
 
 app.use('/posts', postRouter)
+app.use('/categories', categoriesRouter)
 
 app.listen(5000)
