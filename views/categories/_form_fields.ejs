@@ -1,15 +1,15 @@
 <div class="form-group">
     <label for="title">Nazwa kategorii</label>
-    <input required value="<%= post.title %>" type="text" name="title" id="title" class="form-control">
+    <input required value="<%= category.title %>" type="text" name="title" id="title" class="form-control">
 </div>
 <div class="form-group">
     <label for="description">Opis</label>
-    <textarea name="description" id="description" class="form-control"><%= post.description %></textarea>
+    <textarea name="description" id="description" class="form-control"><%= category.description %></textarea>
 </div>
 <div class="form-group">
-    <label for="markdown">Tekst formatowany</label>
-    <textarea required name="markdown" id="markdown" class="form-control"><%= post.markdown %></textarea>
+    <label for="createdBy">Created By(narazie w takiej formie)</label>
+    <textarea required name="createdBy" id="createdBy" class="form-control"><%= category.createdBy %></textarea>
 </div>
 
-<a href="/" class="btn btn-secondary">Anuluj</a>
+<a href="/categories" class="btn btn-secondary">Anuluj</a>
 <button type="submit" class="btn btn-primary">Zapisz</button>

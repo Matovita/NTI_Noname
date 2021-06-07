@@ -4,12 +4,14 @@ const Post = require('./models/post')
 const postRouter = require('./routes/posts')
 //const Category = require('./models/category')
 const categoriesRouter = require('./routes/categories')
+const potRouter = require('./routes/pots')
 // const User = require('./models/user')
 // const bcrypt = require('bcryptjs')
 // const jwt = require('jsonwebtoken')
 const methodOverride = require('method-override')
 //const bodyParser = require('body-parser')
 const app = express()
+global.a = 10;
 
 //const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
 
@@ -91,5 +93,6 @@ app.get('/', async (req, res) =>{
 
 app.use('/posts', postRouter)
 app.use('/categories', categoriesRouter)
+app.use('/pots', potRouter)
 
 app.listen(5000)

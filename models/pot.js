@@ -3,6 +3,7 @@ const marked = require('marked')
 const slugify = require('slugify')
 const createDomPurify = require('dompurify')
 const { JSDOM } = require('jsdom')
+const category = require('./category')
 const dompurify = createDomPurify(new JSDOM().window)
 
 const posts = new mongoose.Schema({
@@ -22,9 +23,16 @@ const posts = new mongoose.Schema({
         required: true,
         unique: true
     },
+    categories: {
+        type: String,
+    },
+    createdBy:{
+        type: String,
+        required: true
+    }
 })
 
-postSchema.pre('validate', function(next){
+posts.pre('validate', function(next){
     if(this.title){
         this.slug = slugify(this.title, {lower: true, strict: true})
     }
@@ -32,4 +40,4 @@ postSchema.pre('validate', function(next){
     next()
 })
 
-module.exports = mongoose.model('Posts', posts)
+module.exports = mongoose.model('Pot', posts)

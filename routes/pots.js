@@ -1,28 +1,27 @@
 const express = require('express')
-const Post = require("../models/post")
+const Post = require("./../models/pot")
 const router = express.Router()
-
-router.get('/technical', (req, res)=>{
-    res.render('categories/technical')
-})
+var msg = require("./categories")
 
 router.get('/new', (req, res)=>{
-    res.render('posts/new', {post: new Post() })
+    res.render('pots/new', {post: new Post() })
 })
 router.get('/', async (req, res) => {
-    const categories = await Post.find().sort({createdAt: 'desc'})
-    res.render('posts/index', {post: categories})
+    var name = require("./categories");
+    console.log(name)
+    const categories = await Post.find({createdBy: name}).sort({createdAt: 'desc'})
+    res.render('pots/index', {pots: categories, name: name})
 })
 
 router.get('/edit/:id', async (req, res)=>{
     const post = await Post.findById(req.params.id)
-    res.render('posts/edit', {post: post })
+    res.render('pots/edit', {post: post })
 })
 
 router.get('/:slug', async (req, res)=>{
     const post = await Post.findOne({ slug: req.params.slug })
     if(post == null) res.redirect('/')
-    res.render('posts/show', {post: post})
+    res.render('pots/show', {post: post})
 })
 
 router.post('/', async (req, res, next)=>{
@@ -39,17 +38,17 @@ router.put('/:id', async (req, res, next)=>{
 
 function savePostAndRedirect(path){
     return async (req, res) =>{
-        let post =req.post
-        post.title = req.body.title
-        post.description = req.body.description
-         post.markdown = req.body.markdown
+        let pot =req.post
+        pot.title = req.body.title
+        pot.description = req.body.description
+        pot.createdBy = req.body.createdBy
         try{
-            post = await post.save()
-            let str = '/posts/'
-            str += post.slug
+            pot = await pot.save()
+            let str = '/pots/'
+            str += pot.slug
             res.redirect(str)
         }catch(e){
-            res.render('posts/${path}', {post: post})
+            res.render('pots/${path}', {post: pot})
         }
     }
 }

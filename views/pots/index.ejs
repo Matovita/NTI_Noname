@@ -10,28 +10,26 @@
 <body>
     <div class="container">
         <h1 class="mb-4" style="text-align: center;font-weight: bold;">Forum</h1>
-        <a href="/posts/technical" class="btn btn-success mb-4">Pomoc Techniczna</a>
+        <a href="/pots/new" class="btn btn-success mb-4">Pomoc Techniczna</a>
         <a href="/posts/talk" class="btn btn-success mb-4">Pogadanki</a>
         <a href="/posts/new" class="btn btn-success mb-4">Nowa kategoria</a>
         <a href="/posts/new" class="btn btn-success mb-4">testing</a>
         <a href="/posts/new" class="btn btn-success mb-4">Kategoria5</a>
         <a href="/posts/new" class="btn btn-success mb-4">Kategoria6</a>
-        <a href="/posts/new" class="btn btn-success mb-4">Kategoria7</a>
+        <a href="/posts/new" class="btn btn-success mb-4">kater</a>
         <a href="/categories/new" class="btn btn-success mb-4">NOWA KATEGORIA</a>
-
-        <% categories.forEach(category => { %>
+        <% pots.forEach(pot => { %>
             <div class="card mt-4">
                 <div class="card-body">
-                    <h4 class="card-title"><%= category.title %></h4>
+                    <h4 class="card-title"><%= pot.title %></h4>
                     <div class="card-subtitle text-muted mb-2">
                         napisany dnia:
-                        <%= category.createdAt.toLocaleDateString() %>
+                        <%= pot.createdAt.toLocaleDateString() %>
                     </div>
-                    <div class="card-text mb-2"><%= category.description %></div>
-                    <a href="/categories/<%= category.slug %>" class="btn btn-primary">Czytaj</a>
-                    <a href="/categories/open/<%= category.slug%>" class="btn btn-primary">Otworz</a>
-                    <a href="/categories/edit/<%= category.id %>" class="btn btn-info">Edytuj</a>
-                    <form action="/categories/<%= category.id %>?_method=DELETE" method="POST" class="d-inline">
+                    <div class="card-text mb-2"><%= pot.description %></div>
+                    <a href="/pots/<%= pot.slug %>" class="btn btn-primary">Czytaj</a>
+                    <a href="/pots/edit/<%= pot.id %>" class="btn btn-info">Edytuj</a>
+                    <form action="/pots/<%= pot.id %>?_method=DELETE" method="POST" class="d-inline">
                         <button type="submit" class="btn btn-danger"style="background-color:#a57;">Usuń</button>
                     </form>
                 </div>
