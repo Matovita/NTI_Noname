@@ -23,8 +23,9 @@ const posts = new mongoose.Schema({
         required: true,
         unique: true
     },
-    categories: {
+    category: {
         type: String,
+        required: true
     },
     createdBy:{
         type: String,

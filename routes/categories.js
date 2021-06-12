@@ -18,11 +18,10 @@ router.get('/edit/:id', async (req, res)=>{
 })
 router.get('/open/:slug', async (req, res)=>{
     let categoryName = req.params.slug; 
-    module.exports = categoryName;
-    //console.log(categoryName);
-    a = 11
-    const post = await Post.find({createdBy: categoryName}).sort({createdAt: 'desc'})
-    res.render('pots/index', {pots: post})
+    module.exports = categoryName; 
+    const post = await Post.find({category: categoryName}).sort({createdAt: 'desc'})
+    const cat = await Cat.findOne({ slug: req.params.slug })
+    res.render('pots/index', {pots: post, name: cat})
 })
 router.get('/:slug', async (req, res)=>{
     const category = await Cat.findOne({ slug: req.params.slug })
@@ -47,7 +46,7 @@ function savePostAndRedirect(path){
          category.createdBy = req.body.createdBy
         try{
             category = await category.save()
-            let str = '/categories/'
+            let str = '/categories/open/'
             str += category.slug
             res.redirect(str)
         }catch(e){

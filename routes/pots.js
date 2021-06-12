@@ -1,5 +1,7 @@
 const express = require('express')
-const Post = require("./../models/pot")
+const Post = require("../models/pot")
+const Cat = require("../models/category")
+const Comment = require('../models/comments')
 const router = express.Router()
 var msg = require("./categories")
 
@@ -8,9 +10,9 @@ router.get('/new', (req, res)=>{
 })
 router.get('/', async (req, res) => {
     var name = require("./categories");
-    console.log(name)
-    const categories = await Post.find({createdBy: name}).sort({createdAt: 'desc'})
-    res.render('pots/index', {pots: categories, name: name})
+    const categories = await Post.find({category: name}).sort({createdAt: 'desc'})
+    const cat = await Cat.findOne({ slug: name})
+    res.render('pots/index', {pots: categories, name: cat})
 })
 
 router.get('/edit/:id', async (req, res)=>{
@@ -20,14 +22,19 @@ router.get('/edit/:id', async (req, res)=>{
 
 router.get('/:slug', async (req, res)=>{
     const post = await Post.findOne({ slug: req.params.slug })
+    const comments = await Comment.find({post: req.params.slug}).sort({createdAt: 'desc'})
     if(post == null) res.redirect('/')
-    res.render('pots/show', {post: post})
+    let postName = req.params.slug; 
+    module.exports = postName;
+    res.render('comments/show', {post: post, comments: comments, newcom: new Comment()})
 })
+
 
 router.post('/', async (req, res, next)=>{
     req.post = new Post()
     next()
 }, savePostAndRedirect('new'))
+
 
 router.put('/:id', async (req, res, next)=>{
     req.post = await Post.findById(req.params.id)
@@ -42,6 +49,8 @@ function savePostAndRedirect(path){
         pot.title = req.body.title
         pot.description = req.body.description
         pot.createdBy = req.body.createdBy
+        var name = require("./categories");
+        pot.category = name
         try{
             pot = await pot.save()
             let str = '/pots/'
@@ -55,8 +64,10 @@ function savePostAndRedirect(path){
 
 method="DELETE"
 router.delete('/:id', async (req,res) => {
+    //var name = require("./categories");
     await Post.findByIdAndDelete(req.params.id)
-    res.redirect('/')
+    res.redirect('/categories/')
 })
+
 
 module.exports = router

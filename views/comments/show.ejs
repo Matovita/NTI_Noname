@@ -11,9 +11,9 @@
     <div class="container">
         <h1 class="mb-1"><%= post.title %></h1>
         <div class="text-muted mb-2"><%= post.createdAt.toLocaleDateString() %></div>
+        <div class="card-text mb-2"><%= post.description %></div>
         <a href="/pots/" class="btn btn-secondary">Wszystkie posty</a>
         <a href="/pots/edit/<%= post.id %>" class="btn btn-info">Edytuj</a>
-        <a href="/pots/" class="btn btn-primary">Dodaj komentarz</a>
 
         <div>
             <% comments.forEach(com => { %>
@@ -25,11 +25,21 @@
                             <%= com.createdAt.toLocaleDateString() %>
                         </div>
                         <div><%- com.sanitizedHtml %></div>
+                        <form action="/comments/<%= com.id %>?_method=DELETE" method="POST" class="d-inline">
+                            <button type="submit" class="btn btn-danger"style="background-color:#a57;">Usuń</button>
+                        </form>
                     </div>
                 </div>
             <% }) %>
         </div>
         
+        <form action="/comments" method="POST">
+            <div class="form-group">
+                <label for="markdown">Napisz komentarz</label>
+                <textarea name="markdown" id="markdown" class="form-control"><%= newcom.markdown %></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Zapisz</button>
+        </form>
     </div>
 </body>
 </html>

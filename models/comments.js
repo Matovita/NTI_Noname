@@ -3,6 +3,7 @@ const marked = require('marked')
 const slugify = require('slugify')
 const createDomPurify = require('dompurify')
 const { JSDOM } = require('jsdom')
+const category = require('./category')
 const dompurify = createDomPurify(new JSDOM().window)
 
 const comm = new mongoose.Schema({
@@ -15,13 +16,16 @@ const comm = new mongoose.Schema({
         default: Date.now
     },
     createdBy: {
-        type: String,
-        required: true
+        type: String
     },
     sanitizedHtml: {
         type: String,
         required: true
-      }
+    },
+    post: {
+        type: String,
+        required: true
+    }
 })
 
 comm.pre('validate', function(next){
