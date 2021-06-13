@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const Post = require('./models/post')
+const Cat = require('./models/category')
 const postRouter = require('./routes/posts')
 //const Category = require('./models/category')
 const categoriesRouter = require('./routes/categories')
@@ -25,8 +26,8 @@ app.use(express.urlencoded({extended: false}))
 app.use(methodOverride('_method'))
 
 app.get('/', async (req, res) =>{
-    const posts = await Post.find().sort({createdAt: 'desc'})
-    res.render('posts/index', {posts: posts})
+    const Category = await Cat.find().sort({createdAt: 'desc'})
+    res.render('categories/index', {categories: Category})
 })
 
 // app.post('/', async (req, res) => {

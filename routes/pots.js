@@ -22,7 +22,7 @@ router.get('/edit/:id', async (req, res)=>{
 
 router.get('/:slug', async (req, res)=>{
     const post = await Post.findOne({ slug: req.params.slug })
-    const comments = await Comment.find({post: req.params.slug}).sort({createdAt: 'desc'})
+    const comments = await Comment.find({post: req.params.slug}).sort({createdAt: 'asc'})
     if(post == null) res.redirect('/')
     let postName = req.params.slug; 
     module.exports = postName;
