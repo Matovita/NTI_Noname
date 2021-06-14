@@ -108,6 +108,10 @@ button {
   left: 30px;
 }
 
+.galery-btn {
+  left: 110px;
+}
+
 .login-btn {
   right: 30px;
 }
