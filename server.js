@@ -97,5 +97,6 @@ app.use('/posts', postRouter)
 app.use('/categories', categoriesRouter)
 app.use('/pots', potRouter)
 app.use('/comments', comRouter)
+app.use(express.static(__dirname));
 
 app.listen(5000)
