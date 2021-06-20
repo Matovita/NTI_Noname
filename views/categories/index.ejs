@@ -10,6 +10,104 @@
 <body>
     <div class="container">
         <h1 class="mb-4" style="text-align: center;font-weight: bold;">Forum</h1>
+
+        <!-- <button class="login-btn">Zaloguj</button>
+        <button class="register-btn">Zarejestruj</button> -->
+        <form class="register-form" action="/login/api/register" method="POST">
+            <h2>Register</h2>
+            <p>
+              <label>
+                Username:
+                <input type="text" placeholder="username" name="username" id="usernameRegister" />
+              </label>
+              <br />
+              <label>
+                Password:
+                <input type="password" placeholder="password" name="password" id="passwordRegister" />
+              </label>
+              <br />
+              <button class="btn" id="register-accept">Potwierdź</button>
+            </p>
+          </form>
+          
+          <script>
+			const formR = document.getElementById('register-form')
+            const btnReg = document.getElementById('register-accept')
+			btnReg.addEventListener('click', registerUser)
+
+			async function registerUser(event) {
+				event.preventDefault()
+				const username = document.getElementById('usernameRegister').value
+				const password = document.getElementById('passwordRegister').value
+
+				const result = await fetch('/api/register', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						username,
+						password
+					})
+				}).then((res) => res.json())
+
+				if (result.status === 'ok') {
+					// everythign went fine
+					alert('Success')
+				} else {
+					alert(result.error)
+				}
+			}
+		</script>
+      
+          <form class="login-form" action="/login/api/login" method="POST">
+            <h3>Log In</h3>
+            <p>
+              <label>
+                Username:
+                <input type="text" placeholder="username" name="username" id="usernameLog" />
+              </label>
+              <label>
+                Password:
+                <input type="password" placeholder="password" name="password" id="passwordLog" />
+              </label>
+              <br />
+              <button class="btn" id="login-accept">Zaloguj</button>
+            </p>
+          </form>
+
+          <script>
+			const forml = document.getElementById('login-form')
+            const btnLog = document.getElementById('login-accept')
+			btnLog.addEventListener('click', login)
+
+			async function login(event) {
+				event.preventDefault()
+				const username = document.getElementById('username').value
+				const password = document.getElementById('password').value
+
+				const result = await fetch('/api/login', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						username,
+						password
+					})
+				}).then((res) => res.json())
+
+				if (result.status === 'ok') {
+					// everythign went fine
+					console.log('Got the token: ', result.data)
+					localStorage.setItem('token', result.data)
+					alert('Success')
+				} else {
+					alert(result.error)
+				}
+			}
+		</script>
+
         <a href="/categories/new" class="btn btn-success mb-4">NOWA KATEGORIA</a>
 
         <% categories.forEach(category => { %>
