@@ -64,9 +64,8 @@ function savePostAndRedirect(path){
 
 method="DELETE"
 router.delete('/:id', async (req,res) => {
-    //var name = require("./categories");
     await Post.findByIdAndDelete(req.params.id)
-    res.redirect('/categories/')
+    res.redirect('/pots')
 })
 
 

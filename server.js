@@ -1,8 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const Post = require('./models/post')
 const Cat = require('./models/category')
-const postRouter = require('./routes/posts')
 //const Category = require('./models/category')
 const categoriesRouter = require('./routes/categories')
 const potRouter = require('./routes/pots')
@@ -93,7 +91,6 @@ app.get('/', async (req, res) =>{
 // })
 
 
-app.use('/posts', postRouter)
 app.use('/categories', categoriesRouter)
 app.use('/pots', potRouter)
 app.use('/comments', comRouter)
