@@ -42,3 +42,9 @@ npm i method-override
 npm i dompurify jsdom
 
 start nodemon server.js
+
+nowe komendy do wpisania!!!
+
+npm install bcryptjs
+
+npm install jsonwebtoken
