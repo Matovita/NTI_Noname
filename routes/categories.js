@@ -59,13 +59,23 @@ function saveUser(path){
         usr.username = req.body.username
         usr.password = await bcrypt.hash(req.body.password, 10)
         usr.isAdmin = false;
-        try{
-            usr = await usr.save()
-            let str = '/categories'
-            res.redirect(str)
-        }catch(e){
-            response.status(500).send(e);
-            res.render('categories/${path}', {category: category})
+        let username = req.body.username
+
+        const serUser = await User.findOne({ username }).lean()
+        if (!serUser) {
+            try {
+                usr = await usr.save()
+                let str = '/categories'
+                console.log("Zarejestrowano")
+                res.redirect(str)
+            } catch(e) {
+                res.redirect("/categories")
+                console.log("Złe hasło lub login")
+            }
+        }
+        else{
+            console.log("Użytkownik istnieje")
+            res.redirect("/categories")
         }
     }
 }
@@ -77,9 +87,10 @@ function logUser(path){
 
         const serUser = await User.findOne({ username }).lean()
         if (!serUser) {
-            console.log("Nope")
+            console.log("Zły użytkownik")
+            res.redirect("/categories")
         }
-        try{
+        else {
             if (await bcrypt.compare(password, serUser.password)) {
                 const token = jwt.sign(
                     {
@@ -89,12 +100,14 @@ function logUser(path){
                     JWT_SECRET
                 )
                 console.log("Zalogowano")
+                let str = '/categories'
+                res.redirect(str)
             }
-            let str = '/categories'
-            res.redirect(str)
-        }catch(e){
-            response.status(500).send(e);
-            res.render('categories/${path}', {category: category})
+            else
+            {
+                console.log("Złe hasło")
+                res.redirect("/categories")
+            }
         }
     }
 }
