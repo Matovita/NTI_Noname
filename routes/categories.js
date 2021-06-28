@@ -2,7 +2,12 @@ const { response } = require('express')
 const express = require('express')
 const Cat = require("./../models/category")
 const Post = require("./../models/pot")
+const User = require("./../models/user")
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 const router = express.Router()
+
+const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
 
 router.get('/new', (req, res)=>{
     res.render('categories/new', {category: new Cat() })
@@ -10,7 +15,7 @@ router.get('/new', (req, res)=>{
 
 router.get('/', async (req, res) => {
     const Category = await Cat.find().sort({createdAt: 'desc'})
-    res.render('categories/index', {categories: Category})
+    res.render('categories/index', {categories: Category, user: new User()})
 })
 router.get('/edit/:id', async (req, res)=>{
     const cat = await Cat.findById(req.params.id)
@@ -28,6 +33,16 @@ router.get('/:slug', async (req, res)=>{
     if(category == null) res.redirect('/')
     res.render('categories/show', {category: category})
 })
+router.post('/register', async (req, res, next)=>{
+    req.user = new User()
+    next()
+}, saveUser('new'))
+
+router.post('/login', async (req, res, next)=>{
+    req.user = new User()
+    next()
+}, logUser('new'))
+
 router.post('/', async (req, res, next)=>{
     req.category = new Cat()
     next()
@@ -37,6 +52,52 @@ router.put('/:id', async (req, res, next)=>{
     req.category = await Cat.findById(req.params.id)
     next()
 }, savePostAndRedirect('edit'))
+
+function saveUser(path){
+    return async (req, res) =>{
+        let usr = req.user
+        usr.username = req.body.username
+        usr.password = await bcrypt.hash(req.body.password, 10)
+        usr.isAdmin = false;
+        try{
+            usr = await usr.save()
+            let str = '/categories'
+            res.redirect(str)
+        }catch(e){
+            response.status(500).send(e);
+            res.render('categories/${path}', {category: category})
+        }
+    }
+}
+
+function logUser(path){
+    return async (req, res) =>{
+        let username = req.body.usernamelog
+        let password = req.body.passwordlog
+
+        const serUser = await User.findOne({ username }).lean()
+        if (!serUser) {
+            console.log("Nope")
+        }
+        try{
+            if (await bcrypt.compare(password, serUser.password)) {
+                const token = jwt.sign(
+                    {
+                        id: serUser._id,
+                        username: serUser.username
+                    },
+                    JWT_SECRET
+                )
+                console.log("Zalogowano")
+            }
+            let str = '/categories'
+            res.redirect(str)
+        }catch(e){
+            response.status(500).send(e);
+            res.render('categories/${path}', {category: category})
+        }
+    }
+}
 
 function savePostAndRedirect(path){
     return async (req, res) =>{

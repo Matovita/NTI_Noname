@@ -6,6 +6,7 @@ const categoriesRouter = require('./routes/categories')
 const potRouter = require('./routes/pots')
 const comRouter = require('./routes/comments')
 const methodOverride = require('method-override')
+const user = require('./models/user')
 const app = express()
 global.a = 10;
 
@@ -20,7 +21,7 @@ app.use(methodOverride('_method'))
 
 app.get('/', async (req, res) =>{
     const Category = await Cat.find().sort({createdAt: 'desc'})
-    res.render('categories/index', {categories: Category})
+    res.render('categories/index', {categories: Category, user: new user()})
 })
 
 

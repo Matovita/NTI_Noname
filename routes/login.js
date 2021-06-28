@@ -9,16 +9,10 @@ const router = express.Router()
 
 const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
 
-mongoose.connect('mongodb://localhost/db', {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-	useCreateIndex: true
-})
-
-router.use('/views/categories/index', express.static(path.join(__dirname, 'static')))
+router.use('/', express.static(path.join(__dirname, 'static')))
 router.use(bodyParser.json())
 
-router.post('/views/categories/index', async (req, res) => {
+router.post('/', async (req, res) => {
 	const { username, password: plainTextPassword } = req.body
 
 	if (!username || typeof username !== 'string') {
