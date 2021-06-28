@@ -44,6 +44,7 @@
 
     <button class="login-btn">Logowanie</button>
     <button class="register-btn">Rejestracja</button>
+    <button class="logout-btn" style="display: none;">Wyloguj</button>
 
     <form class="regForm" id="regForm" style="display: none;" action="/categories/register" method="POST">
         <h1>Rejestracja</h1>
@@ -64,6 +65,7 @@
         const loginForm = document.querySelector(`.logForm`);
         const btnRegister = document.querySelector(`.register-btn`);
         const registerForm = document.querySelector(`.regForm`);
+        const btnLogout = document.querySelector(`.logout-btn`);
 
         const openLogin = function () {
             registerForm.style.display = "none"
@@ -83,8 +85,21 @@
             registerForm.style.display = "none"
         };
 
+        const logOut = function () {
+            btnLogout.style.display = "none"
+            btnLogin.style.display = "block"
+            btnRegister.style.display = "block"
+        };
+
+        const logIn = function () {
+            btnLogout.style.display = "block"
+            btnLogin.style.display = "none"
+            btnRegister.style.display = "none"
+        };
+
         btnLogin.addEventListener(`click`, openLogin);
         btnRegister.addEventListener(`click`, openRegister);
+        btnLogout.addEventListener(`click`, logOut)
         document.addEventListener(`keydown`, function (e) {
             if (e.key === `Escape`) {
                 closeLogin();

@@ -222,3 +222,18 @@ a{
     text-decoration: none;
     border-radius: 5px;
   }
+
+  .logout-btn {
+    position: absolute;
+    top: -1%;
+    left: 95%;
+    margin-top:15px;
+    margin-bottom: 5px;
+    background-color: royalblue;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 5px;
+  }
