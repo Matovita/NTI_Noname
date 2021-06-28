@@ -166,3 +166,59 @@ a{
     text-decoration: none;
     color:black;
 }
+.regForm {
+    position: absolute;
+    top: 20%;
+    left: 90%;
+    transform: translate(-45%, -50%);
+    width: 15%;
+  
+    background-color: white;
+    padding: 1rem 3rem 3rem 3rem;
+    border-radius: 5px;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+  }
+  .logForm {
+    position: absolute;
+    top: 20%;
+    left: 90%;
+    transform: translate(-45%, -50%);
+    width: 15%;
+  
+    background-color: white;
+    padding: 1rem 3rem 3rem 3rem;
+    border-radius: 5px;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+  }
+  
+  .login-btn {
+    position: absolute;
+    top: -1%;
+    left: 92%;
+    margin-top:15px;
+    margin-bottom: 5px;
+    background-color: royalblue;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+  .register-btn {
+    position: absolute;
+    top: -1%;
+    left: 85%;
+    margin-top:15px;
+    margin-bottom: 5px;
+    background-color: royalblue;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 5px;
+  }

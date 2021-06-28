@@ -41,5 +41,117 @@
             </div>
         <% }) %>
     </div>
+
+    <button class="login-btn">Logowanie</button>
+    <button class="register-btn">Rejestracja</button>
+
+    <form class="regForm" id="regForm" style="display: none;">
+        <h1>Rejestracja</h1>
+        <input type="text" autocomplete="off" id="NazwaUzytkownika" placeholder="nazwa użytkownika" /> <br />
+        <input type="password" autocomplete="off" id="Haslo" placeholder="hasło" /> <br />
+        <input type="submit" value="Zarejestruj" />
+    </form>
+    <script>
+        const form1 = document.getElementById('regForm')
+        form1.addEventListener('submit', registerUser)
+
+        async function registerUser(event) {
+            event.preventDefault()
+            const username = document.getElementById('NazwaUzytkownika').value
+            const password = document.getElementById('Haslo').value
+
+            const result = await fetch('/views/categories/index', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username,
+                    password
+                })
+            }).then((res) => res.json())
+
+            if (result.status === 'ok') {
+                // everythign went fine
+                alert('Success')
+            } else {
+                alert(result.error)
+            }
+        }
+    </script>
+    <form class="logForm" id="logForm" style="display: none;">
+        <h1>Logowanie</h1>
+        <input type="text" autocomplete="off" id="NazwaUzytkownikaLogin" placeholder="nazwa użytkownika" /> <br />
+        <input type="password" autocomplete="off" id="HasloLogin" placeholder="hasło" /> <br />
+        <input type="submit" value="Zaloguj" />
+    </form>
+    <script>
+        const form = document.getElementById('logForm')
+        form.addEventListener('submit', login)
+
+        async function login(event) {
+            event.preventDefault()
+            const username = document.getElementById('NazwaUzytkownikaLogin').value
+            const password = document.getElementById('HasloLogin').value
+
+            const result = await fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username,
+                    password
+                })
+            }).then((res) => res.json())
+
+            if (result.status === 'ok') {
+                // everythign went fine
+                console.log('Got the token: ', result.data)
+                localStorage.setItem('token', result.data)
+                alert('Success')
+            } else {
+                alert(result.error)
+            }
+        }
+    </script>
+
+    <script>
+        const btnLogin = document.querySelector(`.login-btn`);
+        const loginForm = document.querySelector(`.logForm`);
+        const btnRegister = document.querySelector(`.register-btn`);
+        const registerForm = document.querySelector(`.regForm`);
+
+        const openLogin = function () {
+            registerForm.style.display = "none"
+            loginForm.style.display = "block"
+        };
+
+        const closeLogin = function () {
+            loginForm.style.display = "none"
+        };
+
+        const openRegister = function () {
+            loginForm.style.display = "none"
+            registerForm.style.display = "block"
+        };
+
+        const closeRegister = function () {
+            registerForm.style.display = "none"
+        };
+
+        btnLogin.addEventListener(`click`, openLogin);
+        btnRegister.addEventListener(`click`, openRegister);
+        document.addEventListener(`keydown`, function (e) {
+            if (e.key === `Escape`) {
+                closeLogin();
+            }
+        });
+        document.addEventListener(`keydown`, function (e) {
+            if (e.key === `Escape`) {
+                closeRegister();
+            }
+        });
+    </script>
 </body>
 </html>
