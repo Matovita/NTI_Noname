@@ -88,6 +88,7 @@ function logUser(path){
         const serUser = await User.findOne({ username }).lean()
         if (!serUser) {
             console.log("Zły użytkownik")
+            global.name = '';
             res.redirect("/categories")
         }
         else {
@@ -100,6 +101,13 @@ function logUser(path){
                     JWT_SECRET
                 )
                 console.log("Zalogowano")
+                console.log(serUser.username)
+                console.log(serUser.isAdmin)
+                global.name = serUser.username
+                if(serUser.isAdmin)
+                {
+                    global.adm = true;
+                }
                 let str = '/categories'
                 res.redirect(str)
             }
@@ -117,7 +125,7 @@ function savePostAndRedirect(path){
         let category =req.category
         category.title = req.body.title
         category.description = req.body.description
-         category.createdBy = req.body.createdBy
+        category.createdBy = global.name
         try{
             category = await category.save()
             let str = '/categories/open/'

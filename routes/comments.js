@@ -17,6 +17,7 @@ function savePostAndRedirect(path){
         let pot =req.newcom
         pot.markdown = req.body.markdown
         pot.post = require("./pots")
+        pot.createdBy = global.name
         //console.log(pot.post)
         //pot.createdBy = 'me'
         try{

@@ -15,7 +15,10 @@
         <h1 id="titleText">Forum</h1>
     </div>
     <div class="containerMain">
-        <a href="/categories/new" class="btnOpen">NOWA KATEGORIA</a>
+        <% if(global.adm){ %>
+            <a href="/categories/new" class="btnOpen">NOWA KATEGORIA</a>
+        <% } %>
+        
 
         <% categories.forEach(category => { %>
             <div class="containerPost">
@@ -31,13 +34,17 @@
                         <%= category.createdAt.toLocaleDateString() %>
                     </div>
                     <div class="containerPostUser">
-                       przez:
-                        <%= category.createdAt.toLocaleDateString() %>
+                        <b><%= category.createdBy %></b>                
                     </div>
                     <div class="containerPostData"><%= category.description %></div>
                     <a href="/categories/open/<%= category.slug%>" class="btnOpen">Otworz</a>
-                    <a href="/categories/edit/<%= category.id %>" class="btnOpen">Edytuj</a>
-                    <form action="/categories/<%= category.id %>?_method=DELETE" method="POST"><button type="submit" class="btnDelete">Usuń</button></form>
+                    <% if(global.adm){ %>
+                        <a href="/categories/edit/<%= category.id %>" class="btnOpen">Edytuj</a>
+                    <% } %>
+                    <% if(global.adm){ %>
+                        <form action="/categories/<%= category.id %>?_method=DELETE" method="POST"><button type="submit" class="btnDelete">Usuń</button></form>
+                    <% } %>
+                    
             </div>
         <% }) %>
     </div>

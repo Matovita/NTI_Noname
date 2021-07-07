@@ -15,17 +15,19 @@
     </div>
     <div class="containerMain">
         <h1 class="mb-1"><%= post.title %></h1>
-        <div class="text-muted mb-2"><%= post.createdAt.toLocaleDateString() %></div>
+        <div class="text-muted mb-2"><%= post.createdBy %>  <%= post.createdAt.toLocaleDateString() %></div>
         <div class="card-text mb-2"><%= post.description %></div>
         <a href="/pots/" class="btnOpen">Wszystkie posty</a>
-        <a href="/pots/edit/<%= post.id %>" class="btnOpen">Edytuj</a>
+        <% if(global.name == post.createdBy || global.adm) { %>
+            <a href="/pots/edit/<%= post.id %>" class="btnOpen">Edytuj</a>
+        <% } %>
 
         <div>
             <% comments.forEach(com => { %>
                     <div class="containerPost">
                         <h4 class="card-title"><%= com.title %></h4>
                         <div class="card-subtitle text-muted mb-2">
-                            napisany dnia:
+                            <b><%= com.createdBy %></b>
                             <%= com.createdAt.toLocaleDateString() %>
                         </div>
                         <div><%- com.sanitizedHtml %></div>
@@ -38,10 +40,12 @@
         
         <form action="/comments" method="POST">
             <div class="form-group">
-                <label for="markdown">Napisz komentarz</label>
+                <label for="markdown">Napisz komentarz (musisz być zalogowany)</label>
                 <textarea name="markdown" id="markdown" class="form-control"><%= newcom.markdown %></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Zapisz</button>
+            <% if(global.name !='') { %>
+                <button type="submit" class="btn btn-primary">Zapisz</button>
+            <% } %>
         </form>
     </div>
 </body>

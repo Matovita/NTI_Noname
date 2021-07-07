@@ -48,7 +48,7 @@ function savePostAndRedirect(path){
         let pot =req.post
         pot.title = req.body.title
         pot.description = req.body.description
-        pot.createdBy = req.body.createdBy
+        pot.createdBy = global.name
         var name = require("./categories");
         pot.category = name
         try{

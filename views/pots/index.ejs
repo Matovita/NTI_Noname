@@ -15,7 +15,10 @@
     </div>
     <div class="containerMain">
         <a href="/categories" class="btnOpen">wróć</a>
-        <a href="/pots/new" class="btnOpen">NOWY POST</a>
+        <% if(global.name != '') { %>
+            <a href="/pots/new" class="btnOpen">NOWY POST</a>
+        <% } %>
+        
         <div class="containerPost">
             <h1><%= name.title %></h1>
             <div class="text-muted mb-2"><%= name.createdAt.toLocaleDateString() %></div>
@@ -34,13 +37,15 @@
                         <%= pot.createdAt.toLocaleDateString() %>
                     </div>
                     <div class="containerPostUser">
-                       przez:
-                       <%= pot.createdAt.toLocaleDateString() %>
+                       <b><%= pot.createdBy %></b>
                     </div>
                     <div class="containerPostData"><%= pot.description %></div> 
                     <a href="/pots/<%= pot.slug %>" class="btnOpen">Czytaj</a>
-                    <a href="/pots/edit/<%= pot.id %>" class="btnOpen">Edytuj</a>
-                    <form action="/pots/<%= pot.id %>?_method=DELETE" method="POST"><button type="submit" class="btnDelete">Usuń</button></form>
+                    <% if(global.name == pot.createdBy || global.adm) { %>
+                        <a href="/pots/edit/<%= pot.id %>" class="btnOpen">Edytuj</a>
+                        <form action="/pots/<%= pot.id %>?_method=DELETE" method="POST"><button type="submit" class="btnDelete">Usuń</button></form>
+                    <% } %>
+                                
             </div>
         <% }) %>
     </div>

@@ -8,7 +8,8 @@ const comRouter = require('./routes/comments')
 const methodOverride = require('method-override')
 const user = require('./models/user')
 const app = express()
-global.a = 10;
+global.adm = false;
+global.name = '';
 
 
 var url = "mongodb://localhost/db"
