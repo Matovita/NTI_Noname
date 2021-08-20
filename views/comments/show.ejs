@@ -10,7 +10,8 @@
 </head>
 <body>
     <div id="titleBaner">
-        <img src="/graphic/gothicSymbol.png" id = "symbol"/>
+        <a href="/">
+        <img src="/graphic/gothicSymbol.png" id = "symbol"/></a>
         <h1 id="titleText">Forum</h1>
     </div>
     <div class="containerMain">
@@ -31,9 +32,11 @@
                             <%= com.createdAt.toLocaleDateString() %>
                         </div>
                         <div><%- com.sanitizedHtml %></div>
-                        <form action="/comments/<%= com.id %>?_method=DELETE" method="POST" class="d-inline">
-                            <button type="submit" class="btn btn-danger"style="background-color:#a57;">Usuń</button>
-                        </form>
+                        <% if(global.name == com.createdBy || global.adm) { %>
+                            <form action="/comments/<%= com.id %>?_method=DELETE" method="POST" class="d-inline">
+                                <button type="submit" class="btn btn-danger"style="background-color:#a57;">Usuń</button>
+                            </form>
+                        <% } %> 
                     </div>
             <% }) %>
         </div>
