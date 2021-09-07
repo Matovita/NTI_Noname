@@ -1,0 +1,60 @@
+body {
+  font-family: sans-serif;
+  color: #333;
+  line-height: 1.5;
+  height: 100vh;
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 5%;
+  background: linear-gradient(to top left, #333 40%, #b22222 100%);
+}
+
+header, footer {
+  width: 100%;
+  position: fixed;
+  background: #222;
+  padding: 10px 0;
+  color: #fff;
+}
+
+header {
+  top: 0;
+}
+
+root {
+  color: #fff;
+}
+
+footer {
+  bottom: 0;
+}
+
+nav {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 7px 10px;
+  display: inline-block;
+}
+
+nav a:not(:first-child) {
+  border-left: 2px solid grey;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+}
