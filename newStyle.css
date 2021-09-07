@@ -14,15 +14,21 @@ body {
   background: linear-gradient(to top left, #333 40%, #b22222 100%);
 }
 
+img {
+  margin: 0 auto;
+}
+
 header, footer {
   width: 100%;
   position: fixed;
   background: #222;
   padding: 10px 0;
   color: #fff;
+  left: 0;
 }
 
 header {
+  height: 30px;
   top: 0;
 }
 
@@ -34,20 +40,49 @@ footer {
   bottom: 0;
 }
 
-nav {
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
 nav a {
   color: #fff;
   text-decoration: none;
-  padding: 7px 10px;
+  padding: 3px 10px;
   display: inline-block;
+  margin: 0 auto;
+}
+
+nav a:hover, nav a:first-child:hover {
+  border-radius: 10px;
+  background-color: #333;
+  border-left: 2px solid grey;
+}
+
+.font-size a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0px 5px;
+  display: inline-block;
+}
+
+left, right {
+  font-size: 12px;
+  flex: 50%;
+}
+
+right {
+  text-align: right;
+}
+
+.font-size {
+  width: 288px;
+  height: 30px;
+  text-align: right;
 }
 
 nav a:not(:first-child) {
   border-left: 2px solid grey;
+}
+
+nav a:first-child {
+  color: gold;
+  border-left: 2px solid #222;
 }
 
 .container {
@@ -55,6 +90,10 @@ nav a:not(:first-child) {
   margin: 0 auto;
 }
 
-.header {
+.text-change {
+  display: flex;
+}
+
+.header, .footer {
   display: flex;
 }

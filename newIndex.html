@@ -10,24 +10,50 @@
   <body>
     <header>
       <div class="header container">
-        <img src="things/Logo.png" width="280px">
         <nav>
-          <a href="#">Home</a>
           <a href="http://localhost:5000/">Forum</a>
+          <a href="#">Home</a>
           <a href="#">About</a>
           <a href="#">Contact</a>
-        </nav>
+        </nav> 
+        <img src="things/Logo.png" width="240px">
+        <div class="font-size">
+          <font size="2">
+            <a href="javascript:void(0);" onclick="changemysize(16);">A</a>
+          </font>
+          <font size="4">
+            <a href="javascript:void(0);" onclick="changemysize(20);">A</a>
+          </font>
+          <font size="5">
+            <a href="javascript:void(0);" onclick="changemysize(22);">A</a>
+          </font>
+        </div>
       </div>
     </header>
 
     <root>
-      <div class="container">
-        <p>In dico novum quaeque eam, legendos electram te usu. Nonumes intellegam te vix, mel posse nostrum scaevola ea.</p>
-      </div>
+      <selector class="container">
+        <div class="text-change">
+          <img src="things/gothicSS.png" width="600px">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu nunc sed odio pretium aliquam. Aenean sollicitudin blandit enim id aliquet. Sed tristique sodales libero. Donec mollis porttitor volutpat. Fusce congue urna eget ornare feugiat. Aliquam suscipit, tortor quis commodo suscipit, risus dolor cursus ipsum, eu egestas ante magna nec tellus. Pellentesque sed varius tortor, sed varius leo.</p>
+        </div>
+        <div class="text-change">
+          <p>Phasellus placerat orci ac hendrerit vestibulum. Pellentesque egestas elit id hendrerit rhoncus. Suspendisse imperdiet sem non purus interdum accumsan. Donec aliquet porta mi, ut mattis risus semper nec. Vivamus ac scelerisque sapien, in lacinia orci. Pellentesque rhoncus felis ut felis consectetur, in vestibulum ligula hendrerit. Nam quis fermentum neque, sit amet molestie ante. Curabitur ut quam ut mauris dictum aliquam.</p>
+          <img src="things/gothicSS2.png" width="600px">
+        </div>
+        <div class="text-change">
+          <img src="things/gothicSS.png" width="600px">
+          <p>Maecenas sodales tempus tempus. Pellentesque sodales ipsum vitae vestibulum sagittis. Donec varius elit gravida, rutrum ante sit amet, elementum ligula. Sed non mattis felis, rhoncus imperdiet enim. In hac habitasse platea dictumst. Duis eu odio in lorem elementum ultricies. Curabitur metus massa, condimentum non dolor vel, varius pretium elit.</p>
+        </div>
+      </selector>
     </root>
 
     <footer>
-      <div class="container">Copyright &copy; Noname Project</div>
+      <div class="footer container">
+        <left>Copyright &copy; Noname Project</left>
+        <img src="graphic/gothicSymbol.png" width="20px">
+        <right>Created by: Jakub Bodzak, Kamil Borkowski, Mateusz Dela, Mikołaj Malka, Kacper Rybak</right>
+      </div>
     </footer>
 
     <script src="newScript.js"></script>
