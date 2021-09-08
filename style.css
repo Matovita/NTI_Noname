@@ -1,151 +1,185 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
-
-html {
-  font-size: 100%;
-  box-sizing: border-box;
-}
-
 body {
   font-family: sans-serif;
-  color: #333;
   line-height: 1.5;
-  height: 100vh;
-  width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  height: 100%;
+  padding-top: 4.5%;
+  padding-bottom: 2%;
   background: linear-gradient(to top left, #333 40%, #b22222 100%);
 }
 
-p {
-  margin-bottom: 20px;
-}
-
 img {
-  margin-bottom: 20px;
-  width: 100%;
+  margin: 0 auto;
 }
 
-.content {
-  color: aliceblue;
-  margin-top: 200px;
+header, footer {
+  width: 100%;
+  position: fixed;
+  background: #222;
+  padding: 10px 0;
+  color: #fff;
+  left: 0;
+}
+
+header {
+  height: 30px;
+  top: 0;
+}
+
+root {
+  color: #fff;
+}
+
+footer {
+  bottom: 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 3px 10px;
+  display: inline-block;
+}
+
+nav a:hover, nav a:first-child:hover {
+  border-radius: 10px;
+  background-color: #333;
+  border-left: 2px solid grey;
+}
+
+.font-size a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0px 5px;
+  display: inline-block;
+}
+
+left, right {
+  font-size: 12px;
+  flex: 50%;
+}
+
+right {
+  text-align: right;
+}
+
+.text-image img {
+  width: 600px;
+}
+
+.font-size {
+  width: 288px;
+  text-align: center;
+}
+
+nav a:not(:first-child) {
+  border-left: 2px solid grey;
+}
+
+nav a:first-child {
+  color: gold;
+  border-left: 2px solid #222;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+section.container {
+  width: 75%;
+}
+
+.text-image p {
+  margin: auto 20px auto 20px;
+}
+
+.text-image {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.article {
+  display: flex;
+}
+
+.right-col, .left-col {
+  flex: 50%
+}
+
+.right-col {
+  padding-right: 100px;
+  padding-left: 50px;
+}
+
+.left-col {
+  padding-left: 100px;
+  padding-right: 50px;
+}
+
+.text-image p, .text-image img {
+  flex: 50%;
+}
+
+.text-change {
   font-size: 20px;
 }
 
-.content-text {
-  padding-left: 20px;
-  width: 50%;
-  float: left;
+.header, .footer {
+  display: flex;
 }
 
-.content-photos {
-  width: 50%;
-  float: left;
+breadcrumb {
+  margin-left: 50px;
 }
 
-.login-form {
-  position: absolute;
+breadcrumb::before, breadcrumb::after {
+  color: grey;
+}
+
+breadcrumb::before {
+  content: "<= ";
+}
+
+breadcrumb::after {
+  content: " =>";
+}
+
+.anchor-links {
+  display: block;
+  position: fixed;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 35%;
-
-  background-color: white;
-  padding: 1rem 4rem 4rem 4rem;
-  border-radius: 5px;
-  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-  z-index: 10;
-}
-
-.register-form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40%;
-
-  background-color: white;
-  padding: 1rem 4rem 4rem 4rem;
-  border-radius: 5px;
-  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-  z-index: 10;
-}
-
-#register-accept {
-  left: 200px;
-  top: 150px;
-}
-
-#login-accept {
-  left: 175px;
-  top: 120px;
-}
-
-button {
-  position: absolute;
-  background-color: #888;
-  font-size: 15px;
-  padding: 10px;
-  top: 10px;
-}
-
-.mail-display {
-  position: absolute;
-  color: aliceblue;
-  top: 20px;
-  right: 120px;
-  font-size: 15px;
-}
-
-.forum-btn {
-  left: 30px;
-}
-
-.galery-btn {
-  left: 110px;
-}
-
-.index-btn {
-  left: 195px;
-}
-
-.login-btn {
+  margin-top: -4%;
   right: 30px;
 }
 
-.register-btn {
-  right: 140px;
+.anchor-links ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
 }
 
-.logout-btn {
-  right: 30px;
+.anchor-links ul li {
+  display: list-item;
 }
 
-.g-logo {
-  position: absolute;
-  width: 20%;
-  right: 480px;
-  top: 50px;
+.anchor-links ul li a, .anchor-links ul li a::after {
+    display: inline-block;
+    height: 36px;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(3px);
-  z-index: 5;
+.anchor-links ul li a::after {
+    content: "";
+    background-image: url(graphic/siema.png);
+    background-position: 0 -206px;
+    width: 36px;
+    position: absolute;
+    right: 0;
 }
 
-.hidden {
-  display: none;
+.anchor-links ul li:hover a:after {
+  background-image: url(graphic/siema.png);
+  background-position: 0 -168px;
+  width: 36px;
+  height: 36px;
 }

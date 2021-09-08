@@ -7,141 +7,71 @@
     <link href="style.css" rel="stylesheet" />
     <title>Great adventure of Noname</title>
   </head>
-  <script type="text/javascript">
-    function changemysize(myvalue) {
-      var div = document.getElementById('do-zmiany1');
-      div.style.fontSize = myvalue + 'px';
-      var div = document.getElementById('do-zmiany2');
-      div.style.fontSize = myvalue + 'px';
-    }
-  </script>
   <body>
-    <div class="header">
-      <a href="http://localhost:5000/"
-        ><button class="forum-btn">Forum</button></a
-      >
-      <a href="gallery.html">
-        <button class="galery-btn">Gallery</button>
-      </a>
-      <a href="newIndex.html">
-        <button class="index-btn">New Index</button>
-      </a>
-
-      <img class="g-logo" src="things/gothicLogo.png" />
-      <button class="login-btn">Log In</button>
-      <button class="register-btn">Sing Up</button>
-      <div>
-        <font size="2"
-          ><a href="javascript:void(0);" onclick="changemysize(16);">A</a></font
-        >
-        <font size="4"
-          ><a href="javascript:void(0);" onclick="changemysize(20);">A</a></font
-        >
-        <font size="5"
-          ><a href="javascript:void(0);" onclick="changemysize(25);">A</a></font
-        >
+    <header>
+      <div class="header container">
+        <nav>
+          <a href="http://localhost:5000/">Forum</a>
+          <a href="#">Home</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav> 
+        <img src="graphic/Logo.png" width="240px">
+        <div class="font-size">
+          <font size="2">
+            <a href="javascript:void(0);" onclick="changemysize(20);">A</a>
+          </font>
+          <font size="4">
+            <a href="javascript:void(0);" onclick="changemysize(24);">A</a>
+          </font>
+          <font size="5">
+            <a href="javascript:void(0);" onclick="changemysize(28);">A</a>
+          </font>
+        </div>
       </div>
-      <button class="logout-btn hidden">Log Out</button>
-      <p class="mail-display hidden">Welcome, 123@123.com</p>
-    </div>
-    <div class="content">
-      <div class="content-photos">
-        <img class="g-ss-1" src="things/gothicSS.png" />
-        <img class="g-ss-2" src="things/gothicSS2.png" />
-      </div>
-      <div class="noneDiv"></div>
-      <div class="content-text">
-        <p id="do-zmiany1">
-          In dico novum quaeque eam, legendos electram te usu. Nonumes
-          intellegam te vix, mel posse nostrum scaevola ea. Ei discere habemus
-          noluisse ius, te mel meis partem inermis, mei in delectus sententiae.
-          Liber explicari te duo, id liber urbanitas nec. In his munere
-          vituperatoribus, id wisi euripidis vel. Mundi pertinax cu pri, pro et
-          cetero delectus adipiscing. Pro erant delectus no. Usu ex malis
-          discere pericula, novum primis placerat sed ut. Aliquam meliore
-          efficiendi est te, per omnis probatus cu, mel ei quod facilisi
-          torquatos. Usu legere offendit ei, te his noster vidisse conceptam.
-          Vix eu libris corrumpit dignissim, usu partiendo similique sadipscing
-          no.
-        </p>
-        <p id="do-zmiany2">
-          Placerat incorrupte vel cu, ius brute verterem democritum ne. At pri
-          ornatus quaerendum, sed ex altera causae veritus. Pri eu omnes
-          invidunt adipiscing, sit ei vivendo splendide. Usu wisi tincidunt ut.
-          Pro an summo mnesarchum, et nonumes prodesset mea. Partem civibus
-          interpretaris cu duo, ei sit delenit placerat, veri nemore feugait nec
-          et. An mea modo tincidunt, nec legimus consequat omittantur te. Nec eu
-          modus nulla dignissim, quo dolore vivendo copiosae an, prompta
-          erroribus euripidis nam ei. Malis timeam usu ex. Mei et quaestio
-          corrumpit. Usu legere offendit ei, te his noster vidisse conceptam.
-          Vix eu libris corrumpit dignissim, usu partiendo similique sadipscing
-          no.
-        </p>
-      </div>
-    </div>
+    </header>
 
-    <form class="register-form hidden">
-      <h3>Register</h3>
-      <p>
-        <label>
-          E-mail:
-          <input
-            type="text"
-            placeholder="email"
-            name="e-mail"
-            id="emailRegister"
-          />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input
-            type="password"
-            placeholder="password"
-            name="password"
-            id="passwordRegister"
-          />
-        </label>
-        <br />
-        <label>
-          Confirm password:
-          <input
-            type="password"
-            placeholder="password"
-            name="confirm-password"
-            id="confirmpasswordRegister"
-          />
-        </label>
-        <br />
-        <label class="registerText hidden"
-          >Account succesfully registered</label
-        >
-        <button class="btn" id="register-accept">Register</button>
-      </p>
-    </form>
+    <root>
+      <section class="container">
+        <breadcrumb class="text-change">First breadcrumb</breadcrumb>
+        <div class="text-image text-change">
+          <img src="graphic/gothicSS.png">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu nunc sed odio pretium aliquam. Aenean sollicitudin blandit enim id aliquet. Sed tristique sodales libero. Donec mollis porttitor volutpat. Fusce congue urna eget ornare feugiat. Aliquam suscipit, tortor quis commodo suscipit, risus dolor cursus ipsum, eu egestas ante magna nec tellus. Pellentesque sed varius tortor, sed varius leo.</p>
+        </div>
+        <breadcrumb class="text-change">Second breadcrumb</breadcrumb>
+        <div class="text-image text-change">
+          <p>Phasellus placerat orci ac hendrerit vestibulum. Pellentesque egestas elit id hendrerit rhoncus. Suspendisse imperdiet sem non purus interdum accumsan. Donec aliquet porta mi, ut mattis risus semper nec. Vivamus ac scelerisque sapien, in lacinia orci. Pellentesque rhoncus felis ut felis consectetur, in vestibulum ligula hendrerit. Nam quis fermentum neque, sit amet molestie ante. Curabitur ut quam ut mauris dictum aliquam.</p>
+          <img src="graphic/gothicSS2.png">
+        </div>
+        <breadcrumb class="text-change">Third breadcrumb</breadcrumb>
+        <div class="text-image text-change">
+          <img src="graphic/gothicSS.png">
+          <p>Maecenas sodales tempus tempus. Pellentesque sodales ipsum vitae vestibulum sagittis. Donec varius elit gravida, rutrum ante sit amet, elementum ligula. Sed non mattis felis, rhoncus imperdiet enim. In hac habitasse platea dictumst. Duis eu odio in lorem elementum ultricies. Curabitur metus massa, condimentum non dolor vel, varius pretium elit.</p>
+        </div>
+      </section>
+    </root>
 
-    <form class="login-form hidden">
-      <h3>Log In</h3>
-      <p>
-        <label>
-          E-mail:
-          <input type="text" placeholder="email" name="e-mail" id="emailLog" />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            placeholder="password"
-            name="password"
-            id="passwordLog"
-          />
-        </label>
-        <br />
-        <label class="loginText hidden">Logged in</label>
-        <button class="btn" id="login-accept">Log In</button>
-      </p>
-    </form>
-    <div class="overlay hidden"></div>
+    <navigation class="anchor-links">
+      <ul>
+        <li>
+          <a href="#"></a>
+        </li>
+        <li>
+          <a href="#"></a>
+        </li>
+        <li>
+          <a href="#"></a>
+        </li>
+      </ul>
+    </navigation>
+
+    <footer>
+      <div class="footer container">
+        <left>Copyright &copy; Noname Project</left>
+        <img src="graphic/gothicSymbol.png" width="20px">
+        <right>Created by: Jakub Bodzak, Kamil Borkowski, Mateusz Dela, Mikołaj Malka, Kacper Rybak</right>
+      </div>
+    </footer>
 
     <script src="script.js"></script>
   </body>
