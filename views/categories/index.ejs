@@ -50,8 +50,10 @@
         <% }) %>
     </div>
 
-    <button class="login-btn">Logowanie</button>
-    <button class="register-btn">Rejestracja</button>
+    <% if(global.name == ''){ %>
+        <button class="login-btn">Logowanie</button>
+        <button class="register-btn">Rejestracja</button>
+    <% } %>
     <button class="logout-btn" style="display: none;">Wyloguj</button>
 
     <form class="regForm" id="regForm" style="display: none;" action="/categories/register" method="POST">
@@ -70,7 +72,7 @@
 
     
     <% if(global.name != ''){ %>
-        <a href="/categories/logout/" class="btnOpen">Wyloguj</a>
+        <a href="/categories/logout/" class="btnOpen" id="logout-btn">Wyloguj</a>
     <% } %>
 
     <script>

@@ -223,10 +223,10 @@ a{
     border-radius: 5px;
   }
 
-  .logout-btn {
+  #logout-btn {
     position: absolute;
     top: -1%;
-    left: 95%;
+    left: 78%;
     margin-top:15px;
     margin-bottom: 5px;
     background-color: royalblue;
