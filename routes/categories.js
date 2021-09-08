@@ -28,6 +28,12 @@ router.get('/open/:slug', async (req, res)=>{
     const cat = await Cat.findOne({ slug: req.params.slug })
     res.render('pots/index', {pots: post, name: cat})
 })
+router.get('/logout', async (req, res)=>{
+    console.log("wow")
+    global.name = '';
+    global.adm = false;
+    res.redirect("/categories")
+})
 router.get('/:slug', async (req, res)=>{
     const category = await Cat.findOne({ slug: req.params.slug })
     if(category == null) res.redirect('/')
@@ -43,10 +49,6 @@ router.post('/login', async (req, res, next)=>{
     next()
 }, logUser('new'))
 
-router.post('/logout', async (req, res, next)=>{
-    req.user = new User()
-    next()
-},logoutUser('new'))
 
 router.post('/', async (req, res, next)=>{
     req.category = new Cat()
@@ -94,7 +96,7 @@ function logUser(path){
         if (!serUser) {
             console.log("Zły użytkownik")
             global.name = '';
-            global.isAdmin = false;
+            global.adm = false;
             res.redirect("/categories")
         }
         else {
@@ -126,19 +128,18 @@ function logUser(path){
     }
 }
 
-function logoutUser(path){
+function logoutUser(path){ 
     return async (req, res) =>{
-        
         global.name = '';
        
         console.log("Wylogowano")
 
         global.adm = false;
 
-        let str = '/'
+        let str = '/categories'
         res.redirect(str)
-        
     }
+
 }
 
 function savePostAndRedirect(path){

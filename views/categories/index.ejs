@@ -69,8 +69,8 @@
     </form>
 
     
-    <% if(global.name == ''){ } else { %>
-        <a href="/categories/logoutUser" class="btnOpen">Wyloguj</a>
+    <% if(global.name != ''){ %>
+        <a href="/categories/logout/" class="btnOpen">Wyloguj</a>
     <% } %>
 
     <script>
