@@ -43,6 +43,11 @@ router.post('/login', async (req, res, next)=>{
     next()
 }, logUser('new'))
 
+router.post('/logout', async (req, res, next)=>{
+    req.user = new User()
+    next()
+},logoutUser('new'))
+
 router.post('/', async (req, res, next)=>{
     req.category = new Cat()
     next()
@@ -89,6 +94,7 @@ function logUser(path){
         if (!serUser) {
             console.log("Zły użytkownik")
             global.name = '';
+            global.isAdmin = false;
             res.redirect("/categories")
         }
         else {
@@ -117,6 +123,21 @@ function logUser(path){
                 res.redirect("/categories")
             }
         }
+    }
+}
+
+function logoutUser(path){
+    return async (req, res) =>{
+        
+        global.name = '';
+       
+        console.log("Wylogowano")
+
+        global.adm = false;
+
+        let str = '/'
+        res.redirect(str)
+        
     }
 }
 

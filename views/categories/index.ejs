@@ -68,6 +68,11 @@
         <input type="submit" value="Zaloguj" />
     </form>
 
+    
+    <% if(global.name == ''){ } else { %>
+        <a href="/categories/logoutUser" class="btnOpen">Wyloguj</a>
+    <% } %>
+
     <script>
         const btnLogin = document.querySelector(`.login-btn`);
         const loginForm = document.querySelector(`.logForm`);
@@ -107,7 +112,6 @@
 
         btnLogin.addEventListener(`click`, openLogin);
         btnRegister.addEventListener(`click`, openRegister);
-        btnLogout.addEventListener(`click`, logOut)
         document.addEventListener(`keydown`, function (e) {
             if (e.key === `Escape`) {
                 closeLogin();
