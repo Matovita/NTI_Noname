@@ -125,6 +125,10 @@ section.container {
   font-size: 20px;
 }
 
+.text-change-bigger {
+  font-size: 28px;
+}
+
 .header, .footer {
   display: flex;
 }
@@ -182,4 +186,45 @@ breadcrumb::after {
   background-position: 0 -168px;
   width: 36px;
   height: 36px;
+}
+
+.contact {
+  display: flex;
+  height: 800px;
+}
+
+.contact div {
+  margin: auto;
+  border: 3px double grey;
+  border-radius: 20px;
+}
+
+.contact h2 {
+  width: 50%;
+  text-align: center;
+  padding-top: 30px;
+  margin: 0 auto;
+  border-bottom: 1px solid grey;
+}
+
+.contacts {
+  padding-right: 35px;
+}
+
+.contacts li:first-child {
+  padding-right: 30px;
+}
+
+.contacts li a {
+  padding-left: 100px;
+  text-decoration: none;
+  color: grey;
+}
+
+.contacts li {
+  display: inline-block;
+}
+
+.helper {
+  width: 17px;
 }
